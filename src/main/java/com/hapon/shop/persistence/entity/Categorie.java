@@ -1,6 +1,7 @@
 package com.hapon.shop.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -11,6 +12,9 @@ public class Categorie {
     private Integer idCategorie;
     private String description;
     private Boolean status;
+
+    @OneToMany(mappedBy = "categorie")
+    private List<Product> products;
 
     public Integer getIdCategorie() {
         return idCategorie;

@@ -20,6 +20,10 @@ public class Product {
     private Integer stock;
     private Boolean status;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categorie", insertable = false, updatable = false)
+    private Categorie categorie;
+
     public Integer getIdProduct() {
         return idProduct;
     }
