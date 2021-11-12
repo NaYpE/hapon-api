@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity //para especificar a java que esta clase mapea a una tabla
 @Table(name = "Products")
-public class Product {
+public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -78,5 +78,13 @@ public class Product {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 }
