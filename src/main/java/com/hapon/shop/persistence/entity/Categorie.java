@@ -13,6 +13,9 @@ public class Categorie {
     private String description;
     private Boolean status;
 
+    @OneToMany(mappedBy = "categorie")
+    private List<Producto> productos;
+
     public Integer getIdCategorie() {
         return idCategorie;
     }
@@ -44,8 +47,5 @@ public class Categorie {
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
-
-    @OneToMany(mappedBy = "categorie")
-    private List<Producto> productos;
 
 }

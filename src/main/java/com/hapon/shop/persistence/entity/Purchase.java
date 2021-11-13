@@ -24,8 +24,8 @@ public class Purchase {
     @JoinColumn(name = "id_client", insertable = false, updatable = false)
     private Client client;
 
-    @OneToMany(mappedBy = "product")
-    private List<PurchasesProduct> products;
+    @OneToMany(mappedBy = "producto")
+    private List<PurchasesProduct> productos;
 
     public Integer getIdPurchase() {
         return idPurchase;
@@ -73,5 +73,21 @@ public class Purchase {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public List<PurchasesProduct> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<PurchasesProduct> productos) {
+        this.productos = productos;
     }
 }

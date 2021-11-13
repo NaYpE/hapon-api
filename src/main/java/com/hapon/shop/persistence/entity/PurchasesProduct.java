@@ -51,4 +51,20 @@ public class PurchasesProduct {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
 }

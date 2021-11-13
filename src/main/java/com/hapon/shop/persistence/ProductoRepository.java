@@ -5,6 +5,7 @@ import com.hapon.shop.domain.repository.ProductRepository;
 import com.hapon.shop.persistence.crud.ProductCrudRepository;
 import com.hapon.shop.persistence.entity.Producto;
 import com.hapon.shop.persistence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,12 +13,16 @@ import java.util.Optional;
 
 @Repository
 public class ProductoRepository implements ProductRepository {
+
+    @Autowired
     private ProductCrudRepository productCrudRepository;
+
+    @Autowired
     private ProductMapper mapper;
 
     @Override
-    public Optional<Product> getProduct(int idProduct){
-        return productCrudRepository.findById(idProduct).map(producto -> mapper.toProduct(producto));
+    public Optional<Product> getProduct(int productId){
+        return productCrudRepository.findById(productId).map(producto -> mapper.toProduct(producto));
     }
 
     @Override
@@ -35,7 +40,7 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Optional<List<Product>> getByCategory(int categoryId) {
-        List<Producto> productos = productCrudRepository.findByIdCategorieOrderByAsc(categoryId);
+        List<Producto> productos = productCrudRepository.findByIdCategorieOrderByNameAsc(categoryId);
         return Optional.of(mapper.toProducts(productos));
     }
 
@@ -46,7 +51,7 @@ public class ProductoRepository implements ProductRepository {
     }
 
     @Override
-    public void delete(int idProduct){
-        productCrudRepository.deleteById(idProduct);
+    public void delete(int productId){
+        productCrudRepository.deleteById(productId);
     }
 }
