@@ -17,6 +17,7 @@ public class Producto {
     private String barcode;
     @Column(name = "sale_price")
     private Double salePrice;
+    private String description;
     private Integer stock;
     private Boolean status;
 
@@ -62,6 +63,14 @@ public class Producto {
 
     public void setSalePrice(Double salePrice) {
         this.salePrice = salePrice;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getStock() {

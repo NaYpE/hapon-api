@@ -5,6 +5,8 @@ public class Product {
     private String name;
     private int categoryId;
     private double price;
+    private String description;
+
     private int stock;
     private boolean active;
     private Category category;
@@ -39,6 +41,14 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getStock() {
